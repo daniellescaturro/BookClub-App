@@ -1,0 +1,21 @@
+Project-2 Proposal - BookClub App
+
+Concept
+  Problem - I enjoy reading and discussing books and am   part of a book club, but don't always have time to attend. Or at times I read the book well in advance of the meeting and have a hard time remembering my thoughts on the book.
+
+  General App Idea/Purpose - An app to track the books I've read and my comments on them. A stretch goal is to include other users and to create a discussion feature for those who want to discuss books online.
+
+  Who Would Use the App - Readers / Book lovers / Those that want to discuss books online
+
+High-Level Outline
+  -Landing page would be index page with nav bar (add a new book) and clickable book covers that direct the user to the show page.
+  -Show page would include book cover, date read, rating, synopsis, link to add comments, display of those comments, link to edit book, and button to delete book
+  -Page to add new book
+  -Page to edit book
+
+Stretch Goals
+  -Add users and passwords
+    --To do this would have to add a home page for log in and then upon log in, direct user to index page
+  -Add capability for multiple users to comment on a book
+  -Use partials
+  -Styling with Bootstrap or other CSS framework
