@@ -1,0 +1,14 @@
+
+  <body>
+    <nav>
+      <a href="bookclub/new">Add New Book</a>
+    </nav>
+
+    <h1>Welcome to bookClub!</h1>
+      <div id="book_container">
+        <% for(let i = 0; i < books.length; i++) { %>
+            <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>"></a>
+        <% } %>
+    </div>
+  </body>
+</html>

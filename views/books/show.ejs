@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <!-- <a href="bookclub/new">Add New Book</a> ////This goes to path /bookclub/bookclub/new when on the show page? -->
+      <a href="/bookclub">Back</a>
+    </nav>
+
+    <h1>Book Show Page</h1>
+      <div id="book_container">
+        <img src="<%= book.cover %>">
+        <p>Title: <%= book.title %></p>
+        <p>Author: <%= book.author %></p>
+        <p>Date Read: <%= book.dateRead %></p>
+        <p>Rating: <%= book.rating %></p>
+        <p>Synopsis: <%= book.synopsis %></p>
+        <p>Comments: <%= book.comments %></p>
+        <p><a href="/bookclub/<%= book.id %>/edit">EDIT BOOK</a></p>
+        <form action="/bookclub/<%=book.id; %>?_method=DELETE" method="POST">
+				  <input type="submit" value="DELETE"/>
+				</form>
+      </div>
+  </body>
+</html>

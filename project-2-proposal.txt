@@ -1,7 +1,7 @@
-Project-2 Proposal - BookClub App
+Project-2 Proposal - BookClub App (working title)
 
 Concept
-  Problem - I enjoy reading and discussing books and am   part of a book club, but don't always have time to attend. Or at times I read the book well in advance of the meeting and have a hard time remembering my thoughts on the book.
+  Problem - I enjoy reading and discussing books and am part of a book club, but don't always have time to attend. Or at times, I read the book well in advance of the meeting and have a hard time remembering what the book was about or my thoughts on it.
 
   General App Idea/Purpose - An app to track the books I've read and my comments on them. A stretch goal is to include other users and to create a discussion feature for those who want to discuss books online.
 
@@ -19,3 +19,4 @@ Stretch Goals
   -Add capability for multiple users to comment on a book
   -Use partials
   -Styling with Bootstrap or other CSS framework
+  -API to pull books into the database, use a route and pull only one time 
