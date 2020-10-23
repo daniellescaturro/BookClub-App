@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+
       <form action="/bookclub/<%=book.id%>?_method=PUT" method="POST">
         <fieldset>
           <label for="img">Book Cover: </label>
@@ -38,6 +34,5 @@
           <input type="submit" name="" value="EDIT BOOK">
         </fieldset>
     </form>
-        <a href="/bookclub/">Back</a>
-  </body>
-</html>
+      
+<%- include('../partials/footer.ejs') %>

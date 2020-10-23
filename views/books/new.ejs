@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+
     <h1>Add New Book</h1>
       <form action="/bookclub" method="POST">
         <fieldset>
@@ -21,7 +17,7 @@
         </fieldset>
         <fieldset>
           <label for="date">Date Read: </label>
-          <input type="date" name="date" value="">
+          <input type="date" name="dateRead" value="">
         </fieldset>
         <fieldset>
           <label for="rating">Rating: </label>
@@ -39,5 +35,5 @@
           <input type="submit" name="" value="ADD BOOK">
         </fieldset>
     </form>
-  </body>
-</html>
+
+<%- include('../partials/footer.ejs') %>

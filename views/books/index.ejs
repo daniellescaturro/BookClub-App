@@ -1,8 +1,4 @@
-
-  <body>
-    <nav>
-      <a href="bookclub/new">Add New Book</a>
-    </nav>
+<%- include('../partials/head.ejs') %>
 
     <h1>Welcome to bookClub!</h1>
       <div id="book_container">
@@ -10,5 +6,5 @@
             <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>"></a>
         <% } %>
     </div>
-  </body>
-</html>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <nav>
-      <!-- <a href="bookclub/new">Add New Book</a> ////This goes to path /bookclub/bookclub/new when on the show page? -->
-      <a href="/bookclub">Back</a>
-    </nav>
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
 
     <h1>Book Show Page</h1>
       <div id="book_container">
@@ -24,5 +15,5 @@
 				  <input type="submit" value="DELETE"/>
 				</form>
       </div>
-  </body>
-</html>
+
+<%- include('../partials/footer.ejs') %>
