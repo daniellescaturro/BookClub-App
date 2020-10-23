@@ -35,6 +35,9 @@ mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true, 
 const booksController = require('./controllers/books.js')
 app.use('/bookclub', booksController)
 
+const commentsController = require('./controllers/comments.js')
+app.use('/comments', commentsController)
+
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController)
 

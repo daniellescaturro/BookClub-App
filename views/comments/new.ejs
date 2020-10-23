@@ -1,0 +1,19 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+
+    <h1>Add Comment</h1>
+      <form action="/comments" method="POST">
+        <fieldset>
+          <label for="rating">Rating: </label>
+          <input type="Number" name="rating" value="">
+        </fieldset>
+        <fieldset>
+          <label for="comments">Comments: </label>
+          <input type="textarea" name="comments" value="">
+        </fieldset>
+        <fieldset>
+          <input type="submit" name="" value="ADD COMMENT">
+        </fieldset>
+    </form>
+
+<%- include('../partials/footer.ejs') %>

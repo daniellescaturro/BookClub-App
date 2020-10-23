@@ -62,7 +62,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', isAuthenticated, (req, res) => {
   Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedModel) => {
 		console.log(updatedModel)
-		res.redirect('/bookclub')
+		res.redirect('/bookclub/'+req.params.id)
   })
 })
 
