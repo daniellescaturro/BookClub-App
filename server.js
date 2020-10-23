@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-//const Book = require('./models/books.js')
 const methodOverride = require('method-override')
 const session = require('express-session')
 require('dotenv').config()
@@ -18,7 +17,14 @@ app.use(methodOverride('_method'))
 
 app.use(express.static('public'))
 
-//add later app.use for sessions
+//sessions
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 // Mongoose connection code
 mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }, () => {
@@ -29,9 +35,15 @@ mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true, 
 const booksController = require('./controllers/books.js')
 app.use('/bookclub', booksController)
 
-//add later controllers for users and sessions
+const usersController = require('./controllers/users.js')
+app.use('/users', usersController)
 
-//add get route for home page  later, if needed
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController)
+
+app.get('/', (req, res) => {
+  res.render('home.ejs', { currentUser: req.session.currentUser })
+})
 
 app.listen(PORT, ()=> {
 	console.log("Listening at port", PORT)
