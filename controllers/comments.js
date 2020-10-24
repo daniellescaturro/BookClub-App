@@ -11,33 +11,33 @@ const isAuthenticated = (req, res, next) =>  {
 }
 
 //new route
-router.get('/comments/new', (req, res) => {
+router.get('/new', (req, res) => {
 	res.render('comments/new.ejs', {
 		currentUser: req.session.currentUser
 	})
 })
 
-// //create route
-// router.post('/', (req, res) => {
-// 	Comment.create(req.body, (error, createdComment) => {
-// 		if (error) console.log(error.message)
-// 		else {
-// 			console.log('added comment data', createdComment)
-// 		res.redirect('/bookclub')
-// 		}
-// 	})
-// })
-//
+//create route
+router.post('/', (req, res) => {
+	Comment.create(req.body, (error, createdComment) => {
+		if (error) console.log(error.message)
+		else {
+			console.log('added comment data', createdComment)
+		res.redirect('/bookclub')
+		}
+	})
+})
+
 // //show route
 // router.get('/:id', isAuthenticated, (req, res) => {
 // 	Comment.findById(req.params.id, (error, foundComment) => {
-// 		res.render('comments/show.ejs', {
+// 		res.render('bookclub/show.ejs', {
 // 			comment: foundComment,
 // 			currentUser: req.session.currentUser
 // 		})
 // 	})
 // })
-//
+
 // //edit route
 // router.get('/:id/edit', (req, res) => {
 //   Comment.findById(req.params.id, (error, foundComment) => {

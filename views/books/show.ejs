@@ -1,20 +1,24 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-    <h1>Book Show Page</h1>
-      <div id="book_container">
-        <img src="<%= book.cover %>">
-        <p>Title: <%= book.title %></p>
-        <p>Author: <%= book.author %></p>
-        <p>Date Read: <%= book.dateRead %></p>
-        <p>Synopsis: <%= book.synopsis %></p>
-        <p>Rating: <%= book.rating %></p>
-        <p>Comments: <%= book.comments %></p>
-        <a href="/bookclub/new">Add New Comment</a>
-        <p><a href="/bookclub/<%= book.id %>/edit">EDIT BOOK</a></p>
-        <form action="/bookclub/<%=book.id; %>?_method=DELETE" method="POST">
-				  <input type="submit" value="DELETE"/>
-				</form>
-      </div>
+<nav>
+  <p><a href="/bookclub/<%= book.id %>/edit">EDIT BOOK</a></p>
+  <form action="/bookclub/<%=book.id; %>?_method=DELETE" method="POST">
+    <input type="submit" value="DELETE"/>
+  </form>
+</nav>
+
+<h1>Book Show Page</h1>
+  <div id="book_container">
+    <img src="<%= book.cover %>">
+    <p>Title: <%= book.title %></p>
+    <p>Author: <%= book.author %></p>
+    <p>Date Read: <%= book.dateRead %></p>
+    <p>Synopsis: <%= book.synopsis %></p>
+    <p>Rating: <%= book.rating %></p>
+    <p>Comments: <%= book.comments %></p>
+    <a href="/comments/new">Add New Comment</a>
+
+ </div>
 
 <%- include('../partials/footer.ejs') %>
