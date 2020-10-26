@@ -1,11 +1,11 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-    <h1>Welcome to bookClub!</h1>
-      <div id="book_container">
-        <% for(let i = 0; i < books.length; i++) { %>
-            <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>"></a>
-        <% } %>
-    </div>
+  <h1>Welcome to bookClub!</h1>
+    <div class="container-fluid.text-center">
+      <% for(let i = 0; i < books.length; i++) { %>
+          <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>" ></a>
+      <% } %>
+  </div>
 
 <%- include('../partials/footer.ejs') %>

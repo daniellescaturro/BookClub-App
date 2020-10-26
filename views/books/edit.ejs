@@ -1,38 +1,26 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-      <form action="/bookclub/<%=book.id%>?_method=PUT" method="POST">
-        <fieldset>
-          <label for="img">Book Cover: </label>
-          <input type="text" name="img" value="<%=book.cover%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="title">Title: </label>
-          <input type="text" name="title"  value="<%=book.title%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="author">Author: </label>
-          <input type="text" name="author" value="<%=book.author%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="dateRead">Date Read: </label>
-          <input type="date" name="dateRead" value="<%=book.dateRead%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="rating">Rating: </label>
-          <input type="Number" name="rating" value="<%=book.rating%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="synopsis">Synopsis: </label>
-          <input type="textarea" name="synopsis" name="synopsis" value="<%=book.synopsis%>"/>
-        </fieldset>
-        <fieldset>
-          <label for="comments">Comments: </label>
-          <input type="textarea" name="comments" value="<%=book.comments%>"/>
-        </fieldset>
-        <fieldset>
-          <input type="submit" name="" value="EDIT BOOK">
-        </fieldset>
-    </form>
-      
+  <form action="/bookclub/<%=book.id%>?_method=PUT" method="POST">
+    <fieldset>
+      <label for="cover">Book Cover: </label>
+      <input type="text" name="cover" value="<%=book.cover%>"/>
+    </fieldset>
+    <fieldset>
+      <label for="title">Title: </label>
+      <input type="text" name="title"  value="<%=book.title%>"/>
+    </fieldset>
+    <fieldset>
+      <label for="author">Author: </label>
+      <input type="text" name="author" value="<%=book.author%>"/>
+    </fieldset>
+    <fieldset>
+      <label for="synopsis">Synopsis: </label>
+      <input type="textarea" name="synopsis" name="synopsis" value="<%=book.synopsis%>"/>
+    </fieldset>
+    <fieldset>
+      <input type="submit" name="" value="EDIT BOOK">
+    </fieldset>
+</form>
+
 <%- include('../partials/footer.ejs') %>

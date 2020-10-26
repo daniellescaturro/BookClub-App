@@ -26,6 +26,12 @@ app.use(
   })
 )
 
+app.use((req, res, next) => {
+	console.log("Here is the session in the custom app-level middleware.")
+	console.log(req.session)
+  next()
+})
+
 // Mongoose connection code
 mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }, () => {
   console.log('The connection with mongod is established')
@@ -34,9 +40,6 @@ mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true, 
 // controllers
 const booksController = require('./controllers/books.js')
 app.use('/bookclub', booksController)
-
-const commentsController = require('./controllers/comments.js')
-app.use('/comments', commentsController)
 
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController)

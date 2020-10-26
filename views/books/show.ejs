@@ -13,12 +13,22 @@
     <img src="<%= book.cover %>">
     <p>Title: <%= book.title %></p>
     <p>Author: <%= book.author %></p>
-    <p>Date Read: <%= book.dateRead %></p>
     <p>Synopsis: <%= book.synopsis %></p>
-    <p>Rating: <%= book.rating %></p>
-    <p>Comments: <%= book.comments %></p>
-    <a href="/comments/new">Add New Comment</a>
+    <p>Rating: <%= avgRating %></p>
 
- </div>
+    <a href="/bookclub/<%= book.id %>/comments/new">Add New Comment</a>
+      <ul>
+        <% for (i = 0; i < book.comments.length; i++) { %>
+         <li>Rating: <%= book.comments[i].rating %></li>
+         <li>Comments: <%= book.comments[i].comments %></li>
+         <p><a href="/bookclub/<%=book.id%>/comments/<%=i%>/edit">Edit Comment</a></p>
+         <form action="/bookclub/<%= book.id%>/comments/<%=i%>?_method=DELETE" method="POST">
+           <input type="submit" value="DELETE"/>
+         </form>
+         <br>
+        <% } %>
+      <ul>
+  </div>
+
 
 <%- include('../partials/footer.ejs') %>

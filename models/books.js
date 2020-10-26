@@ -1,5 +1,12 @@
 const mongoose = require('mongoose')
 
+const commentSchema = new mongoose.Schema({
+  rating: {type: Number, max: 5},
+  comments: String,
+  date: {type: Date, default: Date.now},
+  userid: String
+})
+
 const bookSchema = new mongoose.Schema({
   cover: {
     type: String,
@@ -7,10 +14,9 @@ const bookSchema = new mongoose.Schema({
   },
   title: String,
   author: String,
-  dateRead: Date,
-  rating: {type: Number, max: 5},
   synopsis: String,
-  comments: String
+  rating: {type: Number, max: 5},
+  comments: [commentSchema]
 })
 
 const Book = mongoose.model('Book', bookSchema)
