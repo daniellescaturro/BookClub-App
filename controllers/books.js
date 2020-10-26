@@ -38,44 +38,38 @@ router.get('/new', (req, res) => {
 	})
 })
 
-//edit comments route
-router.get('/:id/comments/:index/edit', (req, res) => {
-console.log(req.params.id)
-console.log("hello")
+//show book route
+router.get('/:id', isAuthenticated, (req, res) => {
 	Book.findById(req.params.id, (error, foundBook) => {
-		let comment = foundBook.comments[req.params.index]
-		comment.userid = req.session.currentUser.id
-		res.render('comments/edit.ejs', {
-		// foundBook.comments.push(comment)
-		// foundBook.save(()=>{
-		// 	res.render('comments/edit.ejs', {
-    //   book: foundBook,
-			currentUser: req.session.currentUser,
-			comment,
-			bookid:req.params.id,
-			commentIndex:req.params.index
-			})
-  	})
-	})
-
-
-	//update comments route
-	router.put('/:id/comments/:index/edit', (req, res) => {
-		Book.findById(req.params.id, (error, foundBook) => {
-			foundBook.comments[req.params.index].rating = req.body.rating
-			foundBook.comments[req.params.index].comments = req.body.comments
-
-			foundBook.save(function(){
-				res.redirect('/bookclub/'+req.params.id)
-				})
-	  	})
+		let total = 0;
+		foundBook.comments.forEach(comment => {
+			total += comment.rating
 		})
+		console.log(foundBook)
+		const avgRating = Math.round(total/foundBook.comments.length);
+		res.render('books/show.ejs', {
+			book: foundBook,
+			avgRating: avgRating,
+			currentUser: req.session.currentUser
+		})
+	})
+})
 
-//new comment route
-router.get('/:id/comments/new', (req, res) => {
-  Book.findById(req.params.id, (error, foundBook) => {
-    res.render('comments/new.ejs', {
-      book: foundBook,
+//update book route
+router.put('/:id', isAuthenticated, (req, res) => {
+	let book = req.body
+ 	book.comments = [];
+  Book.findByIdAndUpdate(req.params.id, { cover: req.body.cover, title: 		req.body.title, author: req.body.author, synopsis: req.body.synopsis }, {new: true}, (error, updatedModel) => {
+		res.redirect('/bookclub/'+req.params.id)
+  })
+})
+
+
+//edit book route
+router.get('/:id/edit', (req, res) => {
+	Book.findById(req.params.id, (error, foundBook) => {
+    res.render('books/edit.ejs', {
+			book: foundBook,
 			currentUser: req.session.currentUser
 		})
   })
@@ -95,48 +89,44 @@ router.post('/:id/comments', (req, res) => {
 })
 
 
-//show book route
-router.get('/:id', isAuthenticated, (req, res) => {
-	Book.findById(req.params.id, (error, foundBook) => {
-		let total = 0;
-		foundBook.comments.forEach(comment => {
-			total += comment.rating
-		})
-		console.log(foundBook)
-		const avgRating = Math.round(total/foundBook.comments.length);
-
-		res.render('books/show.ejs', {
-			book: foundBook,
-			avgRating: avgRating,
+//new comment route
+router.get('/:id/comments/new', (req, res) => {
+  Book.findById(req.params.id, (error, foundBook) => {
+    res.render('comments/new.ejs', {
+      book: foundBook,
 			currentUser: req.session.currentUser
 		})
+  })
+})
+
+
+//edit comments route
+router.get('/:id/comments/:index/edit', (req, res) => {
+console.log(req.params.id)
+console.log("hello")
+	Book.findById(req.params.id, (error, foundBook) => {
+		let comment = foundBook.comments[req.params.index]
+		comment.userid = req.session.currentUser.id
+		res.render('comments/edit.ejs', {
+			currentUser: req.session.currentUser,
+			comment,
+			bookid:req.params.id,
+			commentIndex:req.params.index
+			})
+  	})
 	})
-})
 
 
-//edit book route
-router.get('/:id/edit', (req, res) => {
+//update comments route
+router.put('/:id/comments/:index/edit', (req, res) => {
 	Book.findById(req.params.id, (error, foundBook) => {
-    res.render('books/edit.ejs', {
-			book: foundBook,
-			currentUser: req.session.currentUser
-		})
-  })
-})
-
-
-//update book route
-router.put('/:id', isAuthenticated, (req, res) => {
-	// console.log(req.params.id)
-	// console.log(req.body)
- let book = req.body
- book.comments = [];
-  Book.findByIdAndUpdate(req.params.id, { cover: req.body.cover, title: req.body.title, author: req.body.author, synopsis: req.body.synopsis }, {new: true}, (error, updatedModel) => {
-		// console.log(updatedModel)
-		// console.log(error)
-		res.redirect('/bookclub/'+req.params.id)
-  })
-})
+		foundBook.comments[req.params.index].rating = req.body.rating
+		foundBook.comments[req.params.index].comments = req.body.comments
+		foundBook.save(function(){
+			res.redirect('/bookclub/'+req.params.id)
+			})
+  	})
+	})
 
 
 //destroy comments route
@@ -146,7 +136,6 @@ router.delete('/:id/comments/:index', isAuthenticated, (req, res) => {
 		book.save(()=>{
 			res.redirect(`/bookclub/${req.params.id}`)
 		})
-
   })
 })
 
@@ -156,9 +145,6 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     res.redirect('/bookclub')
   })
 })
-
-
-//NEED TO ADD A DELETE ROUTE FOR COMMENTS
 
 
 module.exports = router
