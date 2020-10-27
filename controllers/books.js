@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 		if (error) console.log(error.message)
 		else {
 			console.log('added provided book data', createdBook)
-		res.redirect('/bookclub')
+			res.redirect('/bookclub')
 		}
 	})
 })
