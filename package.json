@@ -10,7 +10,13 @@
   "repository": {
     "type": "git",
     "url": "https://git.generalassemb.ly/dscaturro/project-2.git"
-  },
+},
+  "scripts": {
+    "start": "node server.js"
+},
+  "engines": {
+    "node": "14.10.1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
