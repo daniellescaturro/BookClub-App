@@ -3,9 +3,9 @@
     <nav>
       <div class="row">
           <div class="col d-flex justify-content-start m-2">
-            <a href="/">Home</a> |
-            <a href="/bookclub">Library</a> |
-            <a href="/bookclub/new">Add New Book</a>
+            <button type="button" class="btn btn-link"><a href="/">Home</a></button>
+            <button type="button" class="btn btn-link"><a href="/bookclub">Library</a></button>
+            <button type="button" class="btn btn-link"><a href="/bookclub/new">Add New Book</a></button>
           </div>
           <div class="col d-flex justify-content-end m-2">
           <% if (currentUser) { %>
@@ -13,8 +13,8 @@
           <form action="/sessions?_method=DELETE" method="POST">
             <input type="submit" value="Log Out"/></form>
           <% } else { %>
-            <a href="/users/new">Sign Up</a> |
-            <a href="/sessions/new">Log In</a>
+            <button type="button" class="btn btn-link"><a href="/users/new">Sign Up</a></button>
+            <button type="button" class="btn btn-link"><a href="/sessions/new">Log In</a></button>
           <% } %>
           </div>
       </div>

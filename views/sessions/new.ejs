@@ -1,11 +1,15 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-  <h1>User Login page</h1>
-  <form action="/sessions" method="POST">
-      Username: <input type="text" name="username" /><br/>
-      Password: <input type="password" name="password" /><br/>
-      <input type="submit" name="" value="User sign in"/>
-  </form>
+  <h1 class="display-4">User Login page</h1>
+    <div class="form-group">
+      <form action="/sessions" method="POST">
+          <label for="username">Username: </label>
+          <input type="text" class="form-control" name="username" /><br/>
+          <label for="password">Password: </label>
+          <input type="password" name="password" /><br/>
+          <input type="submit" name="" value="User sign in"/>
+      </form>
+  </div>
 
 <%- include('../partials/footer.ejs') %>
