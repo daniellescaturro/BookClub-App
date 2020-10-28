@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const commentSchema = new mongoose.Schema({
-  rating: {type: Number, max: 5},
+  rating: {type: Number, min: 0, max: 5},
   comments: String,
   date: {type: Date, default: Date.now},
   userid: String
