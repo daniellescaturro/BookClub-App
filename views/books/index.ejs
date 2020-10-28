@@ -1,13 +1,13 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-  <h1 class="display-4 text-center mt-2 mb-4">Your Library</h1>
+  <h1 class="display-4 text-center mt-2 mb-4">My Library</h1>
 
     <div class="container-fluid">
       <div class="row justify-content-center m-4"
         <div class="col">
           <% for(let i = 0; i < books.length; i++) { %>
-            <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>" ></a>
+            <p class="m-2"><a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>" class="img-fluid"></a></p>
           <% } %>
         </div>
       </div>

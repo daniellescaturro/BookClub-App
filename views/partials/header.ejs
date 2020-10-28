@@ -4,18 +4,18 @@
       <div class="row">
           <div class="col d-flex justify-content-start m-2">
             <button type="button" class="btn btn-link"><a href="/">Home</a></button>
-            <button type="button" class="btn btn-link"><a href="/bookclub">Library</a></button>
+            <button type="button" class="btn btn-link"><a href="/bookclub">My Library</a></button>
             <button type="button" class="btn btn-link"><a href="/bookclub/new">Add New Book</a></button>
           </div>
           <div class="col d-flex justify-content-end m-2">
-          <% if (currentUser) { %>
-          Hello <%= currentUser.username %> |
-          <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out"/></form>
-          <% } else { %>
-            <button type="button" class="btn btn-link"><a href="/users/new">Sign Up</a></button>
-            <button type="button" class="btn btn-link"><a href="/sessions/new">Log In</a></button>
-          <% } %>
+            <% if (currentUser) { %>
+            <p class="h6 m-2"><span class="align-middle">Hello <%= currentUser.username %></span></p>
+            <form action="/sessions?_method=DELETE" method="POST">
+              <input type="submit" class="btn btn-link" value="Log Out"/></form>
+            <% } else { %>
+              <button type="button" class="btn btn-link"><a href="/users/new">Sign Up</a></button>
+              <button type="button" class="btn btn-link"><a href="/sessions/new">Log In</a></button>
+            <% } %>
           </div>
       </div>
     </nav>

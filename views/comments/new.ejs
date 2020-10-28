@@ -1,22 +1,25 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-<img src="<%= book.cover %>">
+<div class="row justify-content-center">
+  <p class="m-4"><img src="<%= book.cover %>"></p>
+</div>
 
-    <h1>Add Comment</h1>
-
-      <form action="/bookclub/<%=book.id%>/comments" method="POST">
-        <fieldset>
-          <label for="rating">Rating: </label>
-          <input type="Number" name="rating" value="">
-        </fieldset>
-        <fieldset>
-          <label for="comments">Comments: </label>
-          <input type="textarea" name="comments" value="">
-        </fieldset>
-        <fieldset>
-          <input type="submit" name="" value="ADD COMMENT">
-        </fieldset>
-    </form>
+<div class="container-fluid">
+  <p class="h2 m-2">Add Comment</p>
+    <form action="/bookclub/<%=book.id%>/comments" method="POST">
+      <div class="form-group m-2">
+        <label for="rating">Rating: </label>
+        <input type="Number" class="form-control" name="rating" value="">
+      </div>
+      <div class="form-group m-2">
+        <label for="comments">Comments: </label>
+        <textarea class="form-control" rows="3" name="comments"></textarea>
+      </div>
+      <div class="form-group m-2">
+        <input type="submit" name="" value="ADD COMMENT">
+      </div>
+  </form>
+</div>
 
 <%- include('../partials/footer.ejs') %>

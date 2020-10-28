@@ -1,3 +1,18 @@
 body {
   color: #404040;
+  background-color: #FFF8DC;
+}
+
+.book_container {
+  width: 50%;
+  margin: 25px auto;
+}
+
+.comments_container {
+  width: 50%;
+  margin: 25px auto;
+}
+
+.deleteCmmtBtn {
+  display: inline;
 }

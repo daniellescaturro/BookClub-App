@@ -1,34 +1,39 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-<nav>
-  <p><a href="/bookclub/<%= book.id %>/edit">EDIT BOOK</a></p>
-  <form action="/bookclub/<%=book.id; %>?_method=DELETE" method="POST">
-    <input type="submit" value="DELETE"/>
-  </form>
-</nav>
+  <div class="container-fluid m-2">
+    <div class="row justify-content-center mt-3">
+      <p><img src="<%= book.cover %>" class="img-fluid"></p>
+    </div>
+    <div class="row justify-content-center">
+      <button class="btn btn-link"><a href="/bookclub/<%= book.id %>/edit">EDIT BOOK</a></button>
+      <form action="/bookclub/<%=book.id; %>?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-link" value="DELETE BOOK"/>
+      </form>
+    </div>
 
-<h1>Book Show Page</h1>
-  <div id="book_container">
-    <%= book.cover %>
-    <p>Title: <%= book.title %></p>
-    <p>Author: <%= book.author %></p>
-    <p>Synopsis: <%= book.synopsis %></p>
-    <p>Rating: <%= avgRating %></p>
+    <div class="book_container">
+      <p><span><strong>Title:</strong></span> <%= book.title %></p>
+      <p><span><strong>Author:</strong></span> <%= book.author %></p>
+      <p><span><strong>Synopsis:</strong></span> <%= book.synopsis %></p>
+      <p><span><strong>Rating:</strong></span> <%= avgRating %></p>
+    </div>
 
-    <a href="/bookclub/<%= book.id %>/comments/new">Add New Comment</a>
-      <ul>
-        <% for (i = 0; i < book.comments.length; i++) { %>
-         <li>Rating: <%= book.comments[i].rating %></li>
-         <li>Comments: <%= book.comments[i].comments %></li>
-         <p><a href="/bookclub/<%=book.id%>/comments/<%=i%>/edit">Edit Comment</a></p>
-         <form action="/bookclub/<%= book.id%>/comments/<%=i%>?_method=DELETE" method="POST">
-           <input type="submit" value="DELETE"/>
-         </form>
-         <br>
+    <div class="comments_container">
+      <div class="row m-2">
+        <a href="/bookclub/<%= book.id %>/comments/new">Add New Comment</a><br/><br/>
+        <ul>
+          <% for (i = 0; i < book.comments.length; i++) { %>
+           <li class="list-inline bg-light">Rating: <%= book.comments[i].rating %></li>
+           <li class="list-inline bg-light">Comments: <%= book.comments[i].comments %></li>
+           <button class="btn btn-link"><a href="/bookclub/<%=book.id%>/comments/<%=i%>/edit">Edit Comment</a></button>
+           <form class="deleteCmmtBtn" action="/bookclub/<%= book.id%>/comments/<%=i%>?_method=DELETE" method="POST">
+             <input type="submit" class="btn btn-link" value="Delete Comment">
+           </form>
+           <br/><br/>
         <% } %>
-      <ul>
-  </div>
-
+        <ul>
+      </div>
+    </div>
 
 <%- include('../partials/footer.ejs') %>
