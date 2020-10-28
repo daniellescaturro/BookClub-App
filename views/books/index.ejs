@@ -4,9 +4,9 @@
   <h1 class="display-4 text-center mt-2 mb-4">My Library</h1>
 
     <div class="container-fluid">
-      <div class="row justify-content-center">
+      <div class="row justify-content-start m-5">
         <% for(let i = 0; i < books.length; i++) { %>
-          <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>" class="w-90 m-2"></a>
+          <a href="/bookclub/<%= books[i].id %>"><img src="<%= books[i].cover %>" class="w-80 m-2"></a>
           <% } %>
       </div>
     </div>
