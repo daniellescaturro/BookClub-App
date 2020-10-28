@@ -19,4 +19,8 @@ This app provides a place for readers to track the books they've read and their 
  * Multiple users can comment on books.
 
 ### Technical Specifications
-This game was created using Node.js, Mongoose, Express, Embedded JavaScript, HTML, Bootstrap, and CSS. It is deployed on Heroku, operates through the browser and requires no installation.  
+This game was created using Node.js, Mongoose, Express, Embedded JavaScript, HTML, Bootstrap, and CSS. It is deployed on Heroku, operates through the browser and requires no installation. 
+
+### Challenges & Potential Forthcoming Features
+ * I would like to populate the library using AJAX/API and then enable users to search the library and populate their personal libraries from the larger library.   
+ * I would also like to do a lot more on the styling front including the navigation bar, buttons/links, ratings and images. I'd like to use clickable stars for the rating rather than the numerical 1-5 I currently have. The layout of the show page can be improved. The form pages are very bland and could use more styling. The comments presentation needs work. Also, the images in the app are too big and I had to find similarly sized photos to include and had a lot of difficulty with size and alignment. I'd like for there to be smaller thumbnail size photos on the My Library page and slightly bigger images on the book show page and edit forms.  
