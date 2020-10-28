@@ -5,8 +5,8 @@ This app provides a place for readers to track the books they've read and their 
   * https://book-club-ds.herokuapp.com/bookclub
 
 ### Wireframes
-  * https://git.generalassemb.ly/dscaturro/project-2/blob/master/Wireframe1.jpeg
-  * https://git.generalassemb.ly/dscaturro/project-2/blob/master/Wireframe2.jpeg
+  * https://git.generalassemb.ly/dscaturro/project-2/blob/master/Wireframe1.JPG
+  * https://git.generalassemb.ly/dscaturro/project-2/blob/master/Wireframe2.JPG
 
 ### User Story
  * To use the app, the user accesses it from their browser at the above link, which will open to the homepage.
