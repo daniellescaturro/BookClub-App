@@ -1,4 +1,4 @@
-# bookClub App
+# BookClub App
 This app provides a place for readers to track the books they've read and their ratings and comments on those books. Other users can comment on books creating an online book club discussion environment.
 
 ### To access the Game
